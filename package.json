@@ -1,0 +1,12 @@
+{
+  "name": "npx-notes",
+  "version": "1.0.0",
+  "description": "Npx notes.",
+  "homepage": "https://github.com/afeiship/npx-notes",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "main": "index.js",
+  "license": "MIT"
+}
