@@ -1,6 +1,6 @@
 {
   "name": "@jswork/ratio-selector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight JavaScript utility for weighted random selection based on ratios.",
   "npmClient": "pnpm",
   "main": "dist/index.cjs.js",
