@@ -118,4 +118,37 @@ describe('Normal test cases', () => {
     expect(results.B / iterations).toBeCloseTo(0.05, 1);
     expect(results.C / iterations).toBeCloseTo(0.05, 1);
   });
+
+  test('handles string values and invalid inputs', () => {
+    // 测试有效的字符串数字
+    const validStringItems = [
+      { name: 'A', value: '0.5' },
+      { name: 'B', value: '0.3' },
+      { name: 'C', value: '0.2' }
+    ] as any;
+    expect(() => ratioSelector(validStringItems)).not.toThrow();
+
+    // 测试无效的数字字符串
+    const invalidStringItems = [
+      { name: 'A', value: 'abc' },
+      { name: 'B', value: '0.5' },
+      { name: 'C', value: '0.5' }
+    ] as any;
+    expect(() => ratioSelector(invalidStringItems)).toThrow('Invalid value in input array.');
+
+    // 测试特殊值
+    const specialValueItems = [
+      { name: 'A', value: undefined },
+      { name: 'B', value: 0.5 },
+      { name: 'C', value: 0.5 }
+    ] as any;
+    expect(() => ratioSelector(specialValueItems)).toThrow('Invalid value in input array.');
+
+    const nullValueItems = [
+      { name: 'A', value: null },
+      { name: 'B', value: 0.5 },
+      { name: 'C', value: 0.5 }
+    ] as any;
+    expect(() => ratioSelector(nullValueItems)).toThrow('Invalid value in input array.');
+  });
 });

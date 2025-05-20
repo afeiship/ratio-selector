@@ -15,6 +15,16 @@ const ratioSelector = (items: ValueItem[]): string => {
     throw new Error('Input must be a non-empty array of items.');
   }
 
+  // 确认 value 为 number，如果不是，则 parseFloat 处理
+  for (const item of items) {
+    if (typeof item.value !== 'number') {
+      item.value = parseFloat(item.value);
+    }
+    if (isNaN(item.value)) {
+      throw new Error('Invalid value in input array.');
+    }
+  }
+
   // 确保所有 value 的总和为 1
   const totalvalue = items.reduce((sum, item) => sum + item.value, 0);
   if (Math.abs(totalvalue - 1) > 1e-6) {
